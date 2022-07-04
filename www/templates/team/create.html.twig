@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-lg-3 text-center my-5">
+            {{ form_start(form) }}
+            <label class="my-2">Team name</label>
+            {{ form_widget(form.team_id) }}
+            {{ form_widget(form.team_name) }}
+            <div class="text-danger d-none choose-team-alert">Choose a team name!</div>
+            {{ form_widget(form.pokemon_id) }}
+            {{ form_widget(form.name) }}
+            {{ form_widget(form.exp) }}
+            {{ form_widget(form.type) }}
+            <div class="my-3 get-pokemon-intro">Click and get a pokemon!</div>
+            <div class="pokemon-container d-none">
+                <h1 class="pokemon-name text-capitalize"></h1>
+                <img class="pokemon-sprite" alt="pokemon-sprite" src="#">
+                <h5 class="my-2">Starting experience:</h5>
+                <div class="pokemon-base-exp"></div>
+                <h5 class="my-2">Abilities:</h5>
+                <div class="pokemon-abilities"></div>
+                <h5 class="my-2">Types:</h5>
+                <div class="pokemon-types"></div>
+            </div>
+            <button type="button" class="btn btn-primary my-3" id="get-pokemon">
+                <span class="get-pokemon-message">Gotta catch'em all!</span>
+                <img class="pokeball-icon" src="{{ asset('media/pokeball.png') }}" alt="Get a pokemon">
+            </button>
+            <button type="submit" class="btn btn-success my-3 d-none" id="submit-pokemon">
+                <span class="save-pokemon-message">Choose this pokemon!</span>
+                <img class="pokeball-icon" src="{{ asset('media/pokeball.png') }}" alt="Save pokemon">
+            </button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
